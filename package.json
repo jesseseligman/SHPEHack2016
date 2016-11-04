@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jesseseligman/SHPEHack2016#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0"
   }
 }
