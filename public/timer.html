@@ -20,9 +20,6 @@ crossorigin="anonymous"></script>
             <button type="button" class="btn btn-danger">Send Emergency Request</button>
         </center>
         <script>
-
-            var tracking = setInterval(postLocation, 4000);
-
             function postLocation() {
               var currentLocation = {};
 
@@ -55,12 +52,11 @@ crossorigin="anonymous"></script>
                 console.log('Could not obtain your location.');
               };
 
-
-
               navigator.geolocation.getCurrentPosition(success, failure);
 
-
             };
+            
+            var tracking = setInterval(postLocation, 5000);
 
             var myVar = setInterval(myTimer, 1000);
             var seconds = 0;

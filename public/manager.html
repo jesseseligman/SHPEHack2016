@@ -4,6 +4,10 @@
     <title>Geolocation</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -21,6 +25,30 @@
   <body>
     <div id="map"></div>
     <script>
+      var workerLocations = [];
+
+      function getLocations() {
+        var $xhr = $.ajax({
+          method: 'GET',
+          url: '/locations',
+          dataType: 'json',
+          contentType: 'application/json'
+        })
+
+        $xhr.done(function(newLocations) {
+          if ($xhr.status !== 200) {
+            return;
+          }
+
+          workerLocations = newLocations;
+          console.log(workerLocations);
+        });
+
+        $xhr.fail(function(err) {
+          console.log(err);
+        })
+      }
+      var tracking = setInterval(getLocations, 10000);
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -44,5 +72,3 @@
     </script>
   </body>
 </html>
-
-

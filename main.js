@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/locations', function(req, res) {
   var locations = fs.readFileSync("./location.json");
-  res.send(JSON.parse(locations));
+  res.send(JSON.parse(locations).user1);
 });
 
 app.post('/locations', function(req, res) {
