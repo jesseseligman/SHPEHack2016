@@ -5,8 +5,6 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
 <script
@@ -14,7 +12,8 @@ src="https://code.jquery.com/jquery-3.1.1.min.js"
 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="stylesheet.css">
 <title>ARM</title>
 </head>
     <body>
@@ -24,13 +23,26 @@ crossorigin="anonymous"></script>
             <center>
                 <div class="form-login">
                 <h4>Login</h4>
+
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="radio-manager" value="manager" checked>
+                    Manager
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="radio-worker" value="worker">
+                    Worker
+                  </label>
+                </div>
                 <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
                 <br>
                 <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
                 <br>
                 <div class="wrapper">
                 <span class="group-btn">
-                    <button class="btn btn-primary" onclick="getValue()" > Login </button>
+                    <button class="btn btn-primary" onclick="login()" > Login </button>
                 </span>
                 </div>
                 </div>
@@ -40,19 +52,17 @@ crossorigin="anonymous"></script>
 </div>
 
         <script>
-            function getValue()
-            {
-                var userName =  document.getElementById("userName").value;
-                var userPassword = document.getElementById("userPassword").value;
+            function login() {
+              var checked = $(':checked').val();
 
-
-                if(userName === userPassword)
-                    {
-                        console.log("ok");
-                    }
-
-
+              if (checked === 'manager') {
+                location.assign('manager.html');
+              }
+              else {
+                location.assign('qrCode.html');
+              }
             }
+
         </script>
 </body>
 </html>
