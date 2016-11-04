@@ -21,9 +21,11 @@
         padding: 0;
       }
     </style>
+    <link rel="stylesheet" href="manager.css">
   </head>
   <body>
     <div id="map"></div>
+    <div id="sidebar"></div>
     <script>
       var workerLocations = [];
 
@@ -33,15 +35,14 @@
           url: '/locations',
           dataType: 'json',
           contentType: 'application/json'
-        })
+        });
 
         $xhr.done(function(newLocations) {
           if ($xhr.status !== 200) {
             return;
           }
 
-          workerLocations = newLocations;
-          console.log(workerLocations);
+          placeMarker(newLocations[newLocations.length - 1]);
         });
 
         $xhr.fail(function(err) {
@@ -50,8 +51,10 @@
       }
       var tracking = setInterval(getLocations, 10000);
 
+      var map;
+
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+          map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 47.6112, lng: -122.3311},
           zoom: 18,
           disableDefaultUI: true
@@ -64,6 +67,17 @@
           map: map,
           title: 'Current'
         });
+
+      }
+
+      function placeMarker(location) {
+        console.log(location);
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+
+        map.setCenter(location);
       }
     </script>
     <script async defer

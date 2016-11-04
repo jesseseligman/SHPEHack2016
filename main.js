@@ -19,8 +19,11 @@ app.get('/locations', function(req, res) {
 });
 
 app.post('/locations', function(req, res) {
-  var coords = req.body
-  console.log(coords);
+  var lat = Number.parseFloat(req.body.latitude);
+  var lng = Number.parseFloat(req.body.longitude);
+  console.log(lat);
+  console.log(lng);
+  var coords = { lat: lat, lng: lng };
 
   fs.readFile('./location.json', 'utf8', function readFileCallback(err, data) {
     if (err) {
@@ -28,7 +31,6 @@ app.post('/locations', function(req, res) {
     }
     else {
       var obj = JSON.parse(data); //now it an object
-      console.log(obj);
       obj.user1.push(coords); //add some data
       var json = JSON.stringify(obj); //convert it back to json
       fs.writeFileSync('./location.json', json, 'utf8'); // write it back
