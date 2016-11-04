@@ -19,8 +19,7 @@ app.get('/locations', function(req, res) {
 });
 
 app.post('/locations', function(req, res) {
-  var user = req.body.user;
-  var coords = req.body.coords;
+  var coords = req.body
   console.log(coords);
 
   fs.readFile('./location.json', 'utf8', function readFileCallback(err, data) {
