@@ -8,7 +8,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -18,15 +18,15 @@
             <button type="button" class="btn btn-danger">Send Emergency Request</button>
         </center>
         <script>
-            
+
             var myVar = setInterval(myTimer, 1000);
-            var seconds = 4;
-            var minutes = 0;
+            var seconds = 0;
+            var minutes = 5;
             var res;
-            
-            function myTimer() 
+
+            function myTimer()
             {
-                
+
                 if(seconds < 10)
                 {
                     seconds--;
@@ -38,7 +38,7 @@
                     seconds--;
                     res = minutes.toString()+":"+seconds.toString();
                 }
-                
+
                 if(seconds == -1)
                 {
                     minutes--;
@@ -50,10 +50,10 @@
                     window.alert("TIMES UP");
                     minutes = 5;
                 }
-                
+
                 document.getElementById("demo").innerHTML = res;
             }
-            
+
             function leadingZero(number)
             {
                 return "0"+number.toString();
