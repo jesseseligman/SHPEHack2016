@@ -10,6 +10,7 @@ body {
 }
 
 .form-login {
+    font: 4rem;
     background-color: #EDEDED;
     padding-top: 10px;
     padding-bottom: 20px;
