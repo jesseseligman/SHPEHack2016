@@ -19,8 +19,6 @@
     </style>
   </head>
   <body>
-    var currentLoc =  require('./location.json');
-    console.log(currentPackage);
     <div id="map"></div>
     <script>
 
@@ -29,7 +27,16 @@
           center: {lat: 47.6112, lng: -122.3311},
           zoom: 18
         });
+
         var infoWindow = new google.maps.InfoWindow({map: map});
+
+        var myLoc = {lat: 47.6111, lng: -122.3300};
+
+        var marker = new google.maps.Marker({
+          position: myLoc,
+          map: map,
+          title: 'Current'
+        });
       }
     </script>
     <script async defer
