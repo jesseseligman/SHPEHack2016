@@ -5,10 +5,8 @@ body {
   font: normal 14px Roboto,arial,sans-serif;
 }
 
-.container {
-    margin-top: 80px;
-    padding: 25px;
-    position: fixed;
+#container {
+  margin-top: 40px;
 }
 
 .form-login {
@@ -30,10 +28,14 @@ h4 {
  text-align: center;
 }
 
-.form-control {
-  border-radius: 10px;
-}
-
 .wrapper {
   text-align: center;
+}
+
+#clock-btn {
+  margin-top: 20px;
+}
+
+#clock-in {
+  font-size: 4rem;
 }
